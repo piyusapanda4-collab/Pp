@@ -1,0 +1,6 @@
+{
+  "name": "PulseFlow - Wearable Fitness & Biometric Tracker",
+  "description": "Personalized fitness intelligence platform syncing with smartwatches, fitness rings, and chest straps with live biometric telemetry, strain analytics, and recovery insights.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
