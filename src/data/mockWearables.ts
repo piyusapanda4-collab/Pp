@@ -7,6 +7,13 @@ import {
   AthleteProfile 
 } from '../types/fitness';
 
+import athleteAvatarImg from '../assets/images/athlete_profile_avatar_1793020127084.jpg';
+import smartwatchImg from '../assets/images/wearable_smartwatch_close_1793020124653.jpg';
+import smartRingImg from '../assets/images/smart_ring_sensor_1793020125523.jpg';
+import trailRunnerImg from '../assets/images/athlete_running_trail_1793020126949.jpg';
+
+export { athleteAvatarImg, smartwatchImg, smartRingImg, trailRunnerImg };
+
 export const INITIAL_ATHLETE: AthleteProfile = {
   name: 'Elena Vance',
   email: 'elena.vance@pulseflow.health',
@@ -16,7 +23,7 @@ export const INITIAL_ATHLETE: AthleteProfile = {
   heightCm: 174,
   restingHrBaseline: 49,
   maxHrRecorded: 188,
-  avatarUrl: '/src/assets/images/athlete_profile_avatar_1793020127084.jpg',
+  avatarUrl: athleteAvatarImg,
   targets: {
     dailyActiveKcal: 750,
     dailySteps: 12000,
@@ -43,7 +50,7 @@ export const INITIAL_DEVICES: WearableDevice[] = [
     isPrimary: true,
     autoSync: true,
     syncIntervalMinutes: 5,
-    image: '/src/assets/images/wearable_smartwatch_close_1793020124653.jpg',
+    image: smartwatchImg,
     totalDataPointsCollected: 842190,
   },
   {
@@ -61,7 +68,7 @@ export const INITIAL_DEVICES: WearableDevice[] = [
     isPrimary: false,
     autoSync: true,
     syncIntervalMinutes: 15,
-    image: '/src/assets/images/smart_ring_sensor_1793020125523.jpg',
+    image: smartRingImg,
     totalDataPointsCollected: 412500,
   },
   {
@@ -79,7 +86,7 @@ export const INITIAL_DEVICES: WearableDevice[] = [
     isPrimary: false,
     autoSync: true,
     syncIntervalMinutes: 10,
-    image: '/src/assets/images/wearable_smartwatch_close_1793020124653.jpg',
+    image: smartwatchImg,
     totalDataPointsCollected: 1254300,
   },
   {
@@ -97,7 +104,7 @@ export const INITIAL_DEVICES: WearableDevice[] = [
     isPrimary: false,
     autoSync: false,
     syncIntervalMinutes: 0,
-    image: '/src/assets/images/wearable_smartwatch_close_1793020124653.jpg',
+    image: smartwatchImg,
     totalDataPointsCollected: 98400,
   },
 ];

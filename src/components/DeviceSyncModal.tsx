@@ -13,6 +13,7 @@ import {
 } from 'lucide-react';
 import { WearableDevice } from '../types/fitness';
 import { WearableSyncService } from '../services/wearableSync';
+import { smartwatchImg } from '../data/mockWearables';
 
 interface DeviceSyncModalProps {
   isOpen: boolean;
@@ -92,7 +93,7 @@ export const DeviceSyncModal: React.FC<DeviceSyncModalProps> = ({
       isPrimary: false,
       autoSync: true,
       syncIntervalMinutes: 10,
-      image: '/src/assets/images/wearable_smartwatch_close_1793020124653.jpg',
+      image: smartwatchImg,
       totalDataPointsCollected: 1440,
     };
     onAddNewDevice(newDev);

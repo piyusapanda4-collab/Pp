@@ -30,15 +30,40 @@ import { Check, Info } from 'lucide-react';
 export default function App() {
   const [activeTab, setActiveTab] = useState<ActiveTab>('dashboard');
 
-  // Persistent or stateful data
+  // Persistent or stateful data with asset migration for production
   const [athlete, setAthlete] = useState<AthleteProfile>(() => {
     const saved = localStorage.getItem('pulseflow_athlete');
-    return saved ? JSON.parse(saved) : INITIAL_ATHLETE;
+    if (saved) {
+      try {
+        const parsed = JSON.parse(saved);
+        if (!parsed.avatarUrl || parsed.avatarUrl.startsWith('/src/assets/')) {
+          parsed.avatarUrl = INITIAL_ATHLETE.avatarUrl;
+        }
+        return parsed;
+      } catch {
+        return INITIAL_ATHLETE;
+      }
+    }
+    return INITIAL_ATHLETE;
   });
 
   const [devices, setDevices] = useState<WearableDevice[]>(() => {
     const saved = localStorage.getItem('pulseflow_devices');
-    return saved ? JSON.parse(saved) : INITIAL_DEVICES;
+    if (saved) {
+      try {
+        const parsed: WearableDevice[] = JSON.parse(saved);
+        return parsed.map((d) => {
+          const matchInitial = INITIAL_DEVICES.find((init) => init.id === d.id);
+          if (matchInitial && (!d.image || d.image.startsWith('/src/assets/'))) {
+            return { ...d, image: matchInitial.image };
+          }
+          return d;
+        });
+      } catch {
+        return INITIAL_DEVICES;
+      }
+    }
+    return INITIAL_DEVICES;
   });
 
   const [telemetry, setTelemetry] = useState<BiometricTelemetry>(INITIAL_TELEMETRY);
